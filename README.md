@@ -152,7 +152,7 @@ void loop() {
 ## Dinâmica Pair Teaching
 
 
-![Pair Teaching](https://github.com/agodoi/m04-semana02b/imgs/clp01.png)
+![Pair Teaching](https://github.com/agodoi/m04-semana02b/blob/main/imgs/pairteaching.png)
 
 
 ### Como Fazer?
