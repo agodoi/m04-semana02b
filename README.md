@@ -151,6 +151,10 @@ void loop() {
 
 ## Dinâmica Pair Teaching
 
+
+![Pair Teaching](https://github.com/agodoi/m04-semana02b/imgs/clp01.png)
+
+
 ### Como Fazer?
 
 1. Faça par com um colega do seu grupo;
