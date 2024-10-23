@@ -15,6 +15,8 @@ Um CLP é como um ESP32 com vários relés automatizando máquinas e esteiras nu
 
 ![CLP](https://github.com/agodoi/m04-semana02b/blob/main/clp01.png)
 
+![CLP](https://github.com/agodoi/m04-semana02b/blob/main/clp02.png)
+
 ### Ciclo de Varredura
 
 O CLP possui um ciclo de varredura que se assemelha ao `void loop()` do ESP32. Veja o fluxograma:  
