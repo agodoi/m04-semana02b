@@ -10,10 +10,17 @@ Revisão geral da linguagem C com aprofundamento em conceitos de fluxo de contro
 
 ### CLP Conceitos
 
-**O que é um CLP?**  
-Um CLP é como um ESP32 com vários relés automatizando máquinas e esteiras numa fábrica. Contudo, o CLP é muito mais robusto para resistir a ruídos eletromagnéticos, poeira, quedas de energia, falhas de sistemas, conexões físicas e programação.
+**O que é um CLP?**
+
+Um CLP é como um ESP32 com vários relés automatizando máquinas e esteiras numa fábrica. Contudo, o CLP é muito mais robusto para resistir a ruídos eletromagnéticos, poeira, quedas de energia, falhas de sistemas, conexões físicas e programação do que o ESP32.
+
+Nesse momento, você só precisa saber que existe esse equipamento, porque mais para frente, quem for fazer Engenharia da Computação, terá um estudo mais aprofundado.
+
+A figura abaixo, mostra um CLP profissional, com vários módulos de interface e várias entradas e saídas de dados.
 
 ![CLP](https://github.com/agodoi/m04-semana02b/blob/main/clp01.png)
+
+O CLP a seguir, é um dos mais baratos e simples de se programar.
 
 ![CLP](https://github.com/agodoi/m04-semana02b/blob/main/clp02.png)
 
@@ -27,6 +34,8 @@ O CLP possui um ciclo de varredura que se assemelha ao `void loop()` do ESP32. V
 ### CLP - Definições Básicas
 
 O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais a serem lidos é o sinal de corrente de 4 a 20 mA, pois é um sinal analógico robusto. Contudo, sinais digitais como HIGH e LOW também são usados.
+
+![Varredura do CLP](https://github.com/agodoi/m04-semana02b/blob/main/varreduraCLP.png)
 
 ---
 
