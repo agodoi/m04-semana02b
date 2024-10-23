@@ -44,7 +44,7 @@ O CLP possui um ciclo de varredura que se assemelha ao `void loop()` do ESP32. V
 
 O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais a serem lidos é o sinal de corrente de 4 a 20 mA, pois é um sinal analógico robusto. Contudo, sinais digitais como HIGH e LOW também são usados.
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/varreduraCLP.png)
+![CLP](https://github.com/agodoi/m04-semana02b/blob/main/varreduraCLP.png)
 
 ![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp4.png)
 
