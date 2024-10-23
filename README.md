@@ -100,14 +100,14 @@ void loop() {
 ```
 class TemperatureSensor {
   private:
-    int pin;
+    int _pino;
   public:
     TemperatureSensor(int pin) {
-      this->pin = pin;
+      _pino = pin;
     }
     float getTemperature() {
-      int sensorValue = analogRead(pin);
-      float voltage = sensorValue * (5.0 / 1023.0);
+      int sensorValue = analogRead(_pino);
+      float voltage = sensorValue * (5.0 / 4093.0);
       float temperature = (voltage - 0.5) * 100.0;
       return temperature;
     }
@@ -144,10 +144,11 @@ void loop() {
 
 ### Como Fazer?
 
-1. Faça par com um colega que tenha estudado ou "codado" uma função ou classe em Arduino essa semana.
-2. Uma pessoa faz o papel de instrutor e a outra o papel de aluno por 20 minutos.
-3. Após esse tempo, inverta os papéis.
-4. A dupla deverá explicar à turma o que aprendeu sobre classes, funções ou métodos.
+1. Faça par com um colega do seu grupo;
+2. Caso o grupo tenha número ímpar de aluno, um grupo terá 3 integrantes;
+3. Uma pessoa faz o papel de instrutor e a outra o papel de aluno por 15 minutos.
+4. Após esse tempo, inverta os papéis.
+5. A dupla deverá explicar à turma o que aprendeu sobre classes, funções ou métodos e trazer um exemplo diferente dos exemplos do professor.
 
 ### Premiação
 
