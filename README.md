@@ -59,33 +59,32 @@ Ao criar uma classe, você define como o objeto será inicializado, como as prop
 ### Exemplo Prático 1 - Pisca-pisca usando Classe
 
 ```
-// EXEMPLO 1
 // Definir a classe Blinker
 class Blinker {
   private:
-    int pin;
-    int interval;
-    unsigned long previousMillis;
-    bool state;
+    int _pino;
+    int _intervalo;
+    unsigned long _previousMillis;
+    bool _state;
   public:
     Blinker(int pin, int interval) {
-      this->pin = pin;
-      this->interval = interval;
-      previousMillis = 0;
-      state = false;
-      pinMode(pin, OUTPUT);
+      _pino = pin;
+      _intervalo = interval;
+      _previousMillis = 0;
+      _state = false;
+      pinMode(_pino, OUTPUT);
     }
     void update() {
       unsigned long currentMillis = millis();
-      if (currentMillis - previousMillis >= interval) {
-        previousMillis = currentMillis;
-        state = !state;
-        digitalWrite(pin, state);
+      if (currentMillis - _previousMillis >= _intervalo) {
+        _previousMillis = currentMillis;
+        _state = !_state;
+        digitalWrite(_pino, _state);
       }
     }
 };
 // Criar um objeto da classe Blinker para o LED conectado ao pino digital 13 com intervalo de 500ms
-Blinker led(13, 500);
+Blinker led(23, 500);
 void setup() {
   // Não é necessário nenhuma configuração no setup para este exemplo
 }
@@ -96,7 +95,7 @@ void loop() {
 ```
 ---
 
-### Exemplo Prático 2 - Lendo sensor de temperatura
+### Exemplo Prático 2 - Lendo sensor de temperatura usando Classe
 
 ```
 class TemperatureSensor {
