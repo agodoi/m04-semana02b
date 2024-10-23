@@ -53,7 +53,7 @@ O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais
 
 #### Como ficaria seu ESP32 se ele fosse um CLP?
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp01.png)
+![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp03.png)
 
 ---
 
