@@ -13,6 +13,8 @@ Revisão geral da linguagem C com aprofundamento em conceitos de fluxo de contro
 **O que é um CLP?**  
 Um CLP é como um ESP32 com vários relés automatizando máquinas e esteiras numa fábrica. Contudo, o CLP é muito mais robusto para resistir a ruídos eletromagnéticos, poeira, quedas de energia, falhas de sistemas, conexões físicas e programação.
 
+[CLP](https://github.com/agodoi/m04-semana02b/blob/main/clp01.png)
+
 ### Ciclo de Varredura
 
 O CLP possui um ciclo de varredura que se assemelha ao `void loop()` do ESP32. Veja o fluxograma:  
