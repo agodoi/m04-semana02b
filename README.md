@@ -1,6 +1,12 @@
-# Semana 02 - Programação
+# Atendimento do Professor
 
-## Instrução 03: Aula de Hoje
+## Terças e quintas. Professor de horário parcial. Nesses 2 dias, podem contar comigo!
+
+
+
+# Semana 02B - Programação
+
+Revisão geral da linguagem C com aprofundamento em conceitos de fluxo de controle e funções, exemplo simples de Blink no Arduino utilizando o paradigma de Orientação a Objetos, Simulador Wokwi.
 
 ### CLP Conceitos
 
