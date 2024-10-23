@@ -37,6 +37,8 @@ O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais
 
 ![Varredura do CLP](https://github.com/agodoi/m04-semana02b/blob/main/varreduraCLP.png)
 
+![CLP e Sensores](https://github.com/agodoi/m04-semana02b/blob/main/clp04.png)
+
 ---
 
 ## Linguagem C - Classes, Métodos e Atributos
