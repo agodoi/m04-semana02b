@@ -31,7 +31,7 @@ A figura abaixo, mostra um CLP profissional, com vários módulos de interface e
 
 O CLP a seguir, é um dos mais baratos e simples de se programar.
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp2.png)
+![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp02.png)
 
 ### Ciclo de Varredura
 
