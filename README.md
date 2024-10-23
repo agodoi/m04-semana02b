@@ -8,6 +8,15 @@
 
 Revisão geral da linguagem C com aprofundamento em conceitos de fluxo de controle e funções, exemplo simples de Blink no Arduino utilizando o paradigma de Orientação a Objetos, Simulador Wokwi.
 
+
+## Vantagens para o seu projeto do IPT
+
+* Usando classes, seu código será mais estrturado;
+* Mais organizado;
+* Mais profissional;
+* Mais eficiente.
+
+
 ### CLP Conceitos
 
 **O que é um CLP?**
