@@ -44,7 +44,11 @@ O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais
 ## Linguagem C - Classes, Métodos e Atributos
 
 ### Classes
-Uma classe é uma estrutura de programação que permite definir um novo tipo de dado personalizado com propriedades e comportamentos específicos. Em outras palavras, uma classe cria um novo objeto que pode ser utilizado no programa, como no Arduino.
+Uma classe é uma estrutura de programação que permite definir um novo tipo de dado personalizado com propriedades e comportamentos específicos. 
+
+Em outras palavras, uma classe cria um novo objeto que pode ser utilizado no programa, como no Arduino.
+
+Portanto, vamos fazer de Programação Orientada a Objeto (POO).
 
 ### Componentes de uma Classe
 - **Membros da classe:** Variáveis ou constantes que definem o estado do objeto.
@@ -52,14 +56,90 @@ Uma classe é uma estrutura de programação que permite definir um novo tipo de
 
 Ao criar uma classe, você define como o objeto será inicializado, como as propriedades podem ser acessadas e modificadas, e quais métodos estarão disponíveis para interagir com o objeto. Isso facilita a criação de programas mais extensíveis e de fácil manutenção.
 
-### Exemplo Prático
-Se você estiver criando um programa que requer o uso de sensores, pode-se criar uma classe que define o comportamento do sensor e métodos para ler seus dados. Sempre que o sensor for necessário, basta instanciar um objeto da classe e utilizá-lo.
+### Exemplo Prático 1 - Pisca-pisca usando Classe
 
-### Instâncias
-Uma instância é um objeto criado a partir de uma classe.  
-Exemplo: Se temos uma classe "Carro", podemos criar várias instâncias como "Carro1", "Carro2", "Carro3", etc. Cada instância terá seus próprios atributos (cor, modelo, ano) e métodos (ligar, acelerar, frear).
-
+```
+// EXEMPLO 1
+// Definir a classe Blinker
+class Blinker {
+  private:
+    int pin;
+    int interval;
+    unsigned long previousMillis;
+    bool state;
+  public:
+    Blinker(int pin, int interval) {
+      this->pin = pin;
+      this->interval = interval;
+      previousMillis = 0;
+      state = false;
+      pinMode(pin, OUTPUT);
+    }
+    void update() {
+      unsigned long currentMillis = millis();
+      if (currentMillis - previousMillis >= interval) {
+        previousMillis = currentMillis;
+        state = !state;
+        digitalWrite(pin, state);
+      }
+    }
+};
+// Criar um objeto da classe Blinker para o LED conectado ao pino digital 13 com intervalo de 500ms
+Blinker led(13, 500);
+void setup() {
+  // Não é necessário nenhuma configuração no setup para este exemplo
+}
+void loop() {
+  // Atualizar o estado do LED
+  led.update();
+}
+```
 ---
+
+### Exemplo Prático 2 - Lendo sensor de temperatura
+
+```
+class TemperatureSensor {
+  private:
+    int pin;
+  public:
+    TemperatureSensor(int pin) {
+      this->pin = pin;
+    }
+    float getTemperature() {
+      int sensorValue = analogRead(pin);
+      float voltage = sensorValue * (5.0 / 1023.0);
+      float temperature = (voltage - 0.5) * 100.0;
+      return temperature;
+    }
+};
+
+
+// Criar um objeto da classe TemperatureSensor para o sensor LM35 conectado ao pino analógico A0
+TemperatureSensor lm35(A0);
+
+
+void setup() {
+  // Iniciar a comunicação serial
+  Serial.begin(9600);
+}
+
+
+void loop() {
+  // Ler a temperatura atual do sensor
+  float temperature = lm35.getTemperature();
+
+
+  // Exibir a temperatura no monitor serial
+  Serial.print("Temperatura: ");
+  Serial.print(temperature);
+  Serial.println(" °C");
+
+
+  // Aguardar 1 segundo antes de fazer outra leitura
+  delay(1000);
+}
+```
 
 ## Dinâmica Pair Teaching
 
