@@ -46,7 +46,7 @@ O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais
 
 ![CLP](https://github.com/agodoi/m04-semana02b/blob/main/varreduraCLP.png)
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp4.png)
+![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp04.png)
 
 ---
 
