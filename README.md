@@ -3,6 +3,10 @@
 ## Terças e quintas. Professor de horário parcial. Nesses 2 dias, podem contar comigo!
 
 
+# Programação do dia
+
+## às 15:00 -> turma 1
+## às 15:30 -> turma 2
 
 # Semana 02B - Programação
 
