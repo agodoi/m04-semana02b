@@ -160,11 +160,11 @@ void loop() {
 
 **1)** Comece digitando ```class``` + nome que desejar e abra uma chave geral {
 
-**3)** Digite ```private:``` e abaixo, vai adicionando as variáveis necessárias para a sua classe. Essas variáveis serão visíveis apenas dentro da sua classe e elas serão usadas no ```public``` daqui a pouco. Uma dica: coloque o ```_``` nas varíaveis que serão privadas para você rapidamente distinguir dentro da sua classe o que é privado;
+**2)** Digite ```private:``` e abaixo, vai adicionando as variáveis necessárias para a sua classe. Essas variáveis serão visíveis apenas dentro da sua classe e elas serão usadas no ```public``` daqui a pouco. Uma dica: coloque o ```_``` nas varíaveis que serão privadas para você rapidamente distinguir dentro da sua classe o que é privado;
 
-**4)** Digite ```public:```. Nessa área, vamos criar o construtor e as **ações** da classe. Exemplos: testar botão, acender led, coletar sensor, formatar um número, realizar um cálculo, calcular um tempo, etc. E nessas ações, você vai usar as variáveis que foram declaradas no ```private```;
+**3)** Digite ```public:```. Nessa área, vamos criar o construtor e as **ações** da classe. Exemplos: testar botão, acender led, coletar sensor, formatar um número, realizar um cálculo, calcular um tempo, etc. E nessas ações, você vai usar as variáveis que foram declaradas no ```private```;
 
-**4.1)** No ```public```, criamos o **construtor**. No construtor, **indexamos a(s) variável(is) da função às variáveis privadas**. E ainda, caso precise, esse é o local do **pinMode** caso esteja trabalhando com pinos GPIO (General Purpose Input Output). Exemplos:
+**3.1)** No ```public```, criamos o **construtor**. No construtor, **indexamos a(s) variável(is) da função às variáveis privadas**. E ainda, caso precise, esse é o local do **pinMode** caso esteja trabalhando com pinos GPIO (General Purpose Input Output). Exemplos:
 
 ```
  public:
@@ -187,7 +187,7 @@ ou
 ```
 
 
-**4.2)** Feche o construtor com uma chave e crie as funções (que são os métodos do seu objeto), coloque **nome** + parênteses + variáveis declaradas localmente que receberão dados indexados. Esse **nome** que você pôs, será o método mais tarde. Exemplo: a função ``` float getTemperature() ``` vai ser usada como ```lm35.getTemperature();```, onde ```lm35``` é o objeto e ```.getTemperature()``` é o seu método. Veja:
+**3.2)** Feche o construtor com uma chave e crie as funções (que são os métodos do seu objeto), coloque **nome** + parênteses + variáveis declaradas localmente que receberão dados indexados. Esse **nome** que você pôs, será o método mais tarde. Exemplo: a função ``` float getTemperature() ``` vai ser usada como ```lm35.getTemperature();```, onde ```lm35``` é o objeto e ```.getTemperature()``` é o seu método. Veja:
 
 ```
     float getTemperature() { //esse nome getTemperature será concatenado ao objeto lm35 usando um ponto
@@ -210,9 +210,9 @@ ou
 
 **ATENÇÃO**: note que temos **float** no primeiro exemplo e **void** no segundo exemplo. Sabe qual é a diferença? No Void sempre não tem **return**, isto é, não retorna nada quando temos **void**.
 
-**4.3)** Encerre a sua função (método) fechando a chave
+**4)** Encerre a sua função (método) fechando a chave
 
-**4.4)** Encerre a classe colocando uma };
+**5)** Encerre a classe colocando uma };
 
 
 ## Dinâmica Pair Teaching
