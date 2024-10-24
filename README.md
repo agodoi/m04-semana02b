@@ -83,7 +83,7 @@ class Blinker {
     unsigned long _previousMillis;
     bool _state;
   public:
-    Blinker(int pin, int interval) {
+    Blinker(int pin, int interval) { //esse trecho chamamos de **construtor**
       _pino = pin;
       _intervalo = interval;
       _previousMillis = 0;
@@ -130,7 +130,7 @@ class TemperatureSensor {
 };
 
 
-// Criar um objeto da classe TemperatureSensor para o sensor LM35 conectado ao pino analógico A0
+// Criar um objeto da classe TemperatureSensor para o sensor LM35 conectado ao pino analógico A0 do Arduino Uno
 TemperatureSensor lm35(A0);
 
 
@@ -155,6 +155,61 @@ void loop() {
   delay(1000);
 }
 ```
+
+### Passos para criar uma classe
+
+**1)** Comece digitando ```class``` + nome que desejar e abra uma chave geral {
+**3)** Digite ```private:``` e abaixo, vai adicionando as variáveis necessárias para a sua classe. Essas variáveis serão visíveis apenas dentro da sua classe e elas serão usadas no ```public``` daqui a pouco. Uma dica: coloque o ```_``` nas varíaveis que serão privadas para você rapidamente distinguir dentro da sua classe o que é privado;
+**4)** Digite ```public:```. Nessa área, vamos criar o construtor e as **ações** da classe. Exemplos: testar botão, acender led, coletar sensor, formatar um número, realizar um cálculo, calcular um tempo, etc. E nessas ações, você vai usar as variáveis que foram declaradas no ```private```;
+**4.1)** No ```public```, criamos o **construtor**. No construtor, **indexamos a(s) variável(is) da função às variáveis privadas**. E ainda, caso precise, esse é o local do **pinMode** caso esteja trabalhando com pinos GPIO (General Purpose Input Output). Exemplos:
+
+```
+ public:
+    TemperatureSensor(int pin) {
+      _pino = pin;
+    }
+```
+
+ou
+
+```
+ public:
+    Blinker(int pin, int interval) { //esse trecho chamamos de **construtor**
+      _pino = pin;
+      _intervalo = interval;
+      _previousMillis = 0;
+      _state = false;
+      pinMode(_pino, OUTPUT);
+    }
+```
+
+
+**4.2)** Feche o construtor com uma chave e crie as funções (que são os métodos do seu objeto), coloque **nome** + parênteses + variáveis declaradas localmente que receberão dados indexados. Esse **nome** que você pôs, será o método mais tarde. Exemplo: a função ``` float getTemperature() ``` vai ser usada como ```lm35.getTemperature();```, onde ```lm35``` é o objeto e ```.getTemperature()``` é o seu método. Veja:
+
+```
+    float getTemperature() { //esse nome getTemperature será concatenado ao objeto lm35 usando um ponto
+      int sensorValue = analogRead(_pino);
+      float voltage = sensorValue * (5.0 / 4093.0);
+      float temperature = (voltage - 0.5) * 100.0;
+      return temperature;
+    }
+```
+
+```
+    void update() { //esse método chamado update não tem return, por isso, ele começa com void. Como ele não retorna nada, a sua utilidade é uma ação
+      unsigned long currentMillis = millis();
+      if (currentMillis - _previousMillis >= _intervalo) {
+        _previousMillis = currentMillis;
+        _state = !_state;
+        digitalWrite(_pino, _state); //ação de mexer o pino
+      }
+```
+
+**ATENÇÃO**: note que temos **float** no primeiro exemplo e **void** no segundo exemplo. Sabe qual é a diferença? No Void sempre não tem **return**, isto é, não retorna nada quando temos **void**.
+
+**4.3)** Encerre a sua função (método) fechando a chave
+**4.4)** Encerre a classe colocando uma };
+
 
 ## Dinâmica Pair Teaching
 
