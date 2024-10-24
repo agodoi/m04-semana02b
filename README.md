@@ -159,8 +159,11 @@ void loop() {
 ### Passos para criar uma classe
 
 **1)** Comece digitando ```class``` + nome que desejar e abra uma chave geral {
+
 **3)** Digite ```private:``` e abaixo, vai adicionando as variáveis necessárias para a sua classe. Essas variáveis serão visíveis apenas dentro da sua classe e elas serão usadas no ```public``` daqui a pouco. Uma dica: coloque o ```_``` nas varíaveis que serão privadas para você rapidamente distinguir dentro da sua classe o que é privado;
+
 **4)** Digite ```public:```. Nessa área, vamos criar o construtor e as **ações** da classe. Exemplos: testar botão, acender led, coletar sensor, formatar um número, realizar um cálculo, calcular um tempo, etc. E nessas ações, você vai usar as variáveis que foram declaradas no ```private```;
+
 **4.1)** No ```public```, criamos o **construtor**. No construtor, **indexamos a(s) variável(is) da função às variáveis privadas**. E ainda, caso precise, esse é o local do **pinMode** caso esteja trabalhando com pinos GPIO (General Purpose Input Output). Exemplos:
 
 ```
@@ -208,6 +211,7 @@ ou
 **ATENÇÃO**: note que temos **float** no primeiro exemplo e **void** no segundo exemplo. Sabe qual é a diferença? No Void sempre não tem **return**, isto é, não retorna nada quando temos **void**.
 
 **4.3)** Encerre a sua função (método) fechando a chave
+
 **4.4)** Encerre a classe colocando uma };
 
 
