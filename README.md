@@ -228,7 +228,8 @@ ou
 3. Uma pessoa faz o papel de instrutor e a outra o papel de aluno por 15 minutos.
 4. Após esse tempo, inverta os papéis.
 5. A dupla deverá explicar à turma o que aprendeu sobre classes, funções ou métodos e trazer um exemplo diferente dos exemplos do professor.
+6. Vamos sortear 5 duplas para vir aqui na frente explicar;
 
 ### Premiação
 
-As 5 melhores duplas ganharão um prêmio. Haverá uma votação.
+As 5 melhores duplas ganharão um prêmio se explicar bem.
