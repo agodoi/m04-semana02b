@@ -16,6 +16,22 @@ Adoção do VSCode + Wokwi + Platformio como ambiente de programação. Seguir [
 * Mais profissional;
 * Mais eficiente.
 
+### Ambiente do VS Code
+
+Usar o VS Code com as extensões do Wokwi e PlatformIO para simular circuitos Arduino oferece uma experiência mais profissional, integrada e próxima do ambiente real de desenvolvimento embarcado. 
+
+O VS Code permite escrever, compilar e depurar o código em um único local, com autocompletar inteligente, controle de versões (Git/GitHub) e suporte direto a bibliotecas externas. 
+
+O PlatformIO facilita a configuração de múltiplas placas e ambientes (ESP32, Arduino UNO, etc.), além de gerar arquivos de **build** consistentes e permitir testes locais. 
+
+Já o Wokwi integrado ao VS Code adiciona a simulação visual do circuito, mas com maior controle sobre o código-fonte, dependências e integração com hardware físico, algo limitado na versão web, que é mais voltada a demonstrações rápidas e possui restrições de bibliotecas, conectividade e armazenamento local.
+
+Seguir [esses passos](https://docs.google.com/document/d/1etH9pohtJPUVs3hmWygYFLzkBLV8PzsorxjhviC-04g/edit?usp=sharing) para montar o seu setup.
+
+#### Cuidados
+
+* **Verificar o arquivo platformio.ini** — certifique-se de que o ambiente, a placa e o framework estão corretamente definidos para evitar erros de compilação. É nesse arquivo que você deve adicionar as bibliotecas dos sensores, caso necessite. O GPeTo pode te ajudar a criar esse arquivo pedindo para ele adicionar o sensor X;
+* Sincronizar as versões das bibliotecas — use sempre versões compatíveis entre o VS Code, PlatformIO e o simulador Wokwi para evitar conflitos de dependência.
 
 ### CLP Conceitos
 
