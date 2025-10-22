@@ -28,6 +28,8 @@ Já o Wokwi integrado ao VS Code adiciona a simulação visual do circuito, mas 
 
 Seguir [esses passos](https://docs.google.com/document/d/1etH9pohtJPUVs3hmWygYFLzkBLV8PzsorxjhviC-04g/edit?usp=sharing) para montar o seu setup.
 
+Vamos gravar um Pisca-pisca no seu ESP32 como exemplo.
+
 #### Cuidados
 
 * **Verificar o arquivo platformio.ini** — certifique-se de que o ambiente, a placa e o framework estão corretamente definidos para evitar erros de compilação. É nesse arquivo que você deve adicionar as bibliotecas dos sensores, caso necessite. O GPeTo pode te ajudar a criar esse arquivo pedindo para ele adicionar o sensor X;
