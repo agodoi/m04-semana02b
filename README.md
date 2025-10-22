@@ -6,6 +6,8 @@
 
 Revisão geral da linguagem C com aprofundamento em conceitos de fluxo de controle e funções, exemplo simples de Blink no Arduino utilizando o paradigma de Orientação a Objetos, Simulador Wokwi.
 
+Adoção do VSCode + Wokwi + Platformio como ambiente de programação. Seguir [esses passos](https://docs.google.com/document/d/1etH9pohtJPUVs3hmWygYFLzkBLV8PzsorxjhviC-04g/edit?usp=sharing)
+
 
 ## Vantagens para o seu projeto da Renault
 
