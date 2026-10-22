@@ -45,11 +45,11 @@ Nesse momento, você só precisa saber que existe esse equipamento, porque mais 
 
 A figura abaixo, mostra um CLP profissional, com vários módulos de interface e várias entradas e saídas de dados.
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp01.png)
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp01.png" width="500">
 
 O CLP a seguir, é um dos mais baratos e simples de se programar.
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp02.png)
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp02.png" width="500">
 
 ### Ciclo de Varredura
 
@@ -62,16 +62,16 @@ O CLP possui um ciclo de varredura que se assemelha ao `void loop()` do ESP32. V
 
 O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais a serem lidos é o sinal de corrente de 4 a 20 mA, pois é um sinal analógico robusto. Contudo, sinais digitais como HIGH e LOW também são usados.
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/varreduraCLP.png)
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/varreduraCLP.png" width="500">
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp04.png)
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp04.png" width="500">
 
 
 ### Conclusões parciais
 
 #### Como ficaria seu ESP32 se ele fosse um CLP?
 
-![CLP](https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp03.png)
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/clp03.png" width="500">
 
 ---
 
@@ -235,9 +235,7 @@ ou
 
 ## Dinâmica Pair Teaching
 
-
-![Pair Teaching](https://github.com/agodoi/m04-semana02b/blob/main/imgs/pairteaching.png)
-
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/pairteaching.png" width="500">
 
 ### Como Fazer?
 
