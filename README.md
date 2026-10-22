@@ -103,10 +103,10 @@ Atributos e métodos são membros da classe.
 Ao criar uma classe, você define como o objeto será inicializado, como as propriedades podem ser acessadas e modificadas, e quais métodos estarão disponíveis para interagir com o objeto. Isso facilita a criação de programas mais extensíveis e de fácil manutenção.
 
 
-<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/Classe%2C%20atributos%2C%20m%C3%A9todos%20e%20objeto.png" width="400">
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/Classe%2C%20atributos%2C%20m%C3%A9todos%20e%20objeto.png" width="600">
 
 
-<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/Classe%20Blinker%20no%20Arduino_%20estrutura%20e%20uso.png" width="400">
+<img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/Classe%20Blinker%20no%20Arduino_%20estrutura%20e%20uso.png" width="600">
 
 
 ### Exemplo Prático 1 - Pisca-pisca usando Classe
