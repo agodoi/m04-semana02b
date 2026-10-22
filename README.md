@@ -4,17 +4,17 @@
 
 # Semana 02B - Programação
 
-Revisão geral da linguagem C com aprofundamento em conceitos de fluxo de controle e funções, exemplo simples de Blink no Arduino utilizando o paradigma de Orientação a Objetos, Simulador Wokwi.
+Revisão de fluxo de controle e funções, com introdução à Programação Orientada a Objetos em C++, utilizando o framework Arduino. Desenvolvimento de um exemplo de pisca-pisca com classes e simulação no Wokwi.
 
 Adoção do VSCode + Wokwi + Platformio como ambiente de programação. Seguir [esses passos](https://docs.google.com/document/d/1etH9pohtJPUVs3hmWygYFLzkBLV8PzsorxjhviC-04g/edit?usp=sharing)
 
 
 ## Vantagens para o seu projeto da Estapar
 
-* Usando classes, seu código será mais estrturado;
-* Mais organizado;
-* Mais profissional;
-* Mais eficiente.
+* Classes permitem reunir os dados e as ações de cada componente do projeto;
+* Favorecem a organização, a reutilização e a manutenção do código;
+* Permitem criar objetos independentes a partir de uma mesma classe, como dois LEDs com intervalos diferentes;
+* O uso de classes não garante, por si só, execução mais rápida ou menor consumo de memória. Esses resultados dependem da implementação.
 
 ### Ambiente do VS Code
 
@@ -39,7 +39,11 @@ Vamos gravar um Pisca-pisca no seu ESP32 como exemplo.
 
 **O que é um CLP?**
 
-Um CLP é como um ESP32 com vários relés automatizando máquinas e esteiras numa fábrica. Contudo, o CLP é muito mais robusto para resistir a ruídos eletromagnéticos, poeira, quedas de energia, falhas de sistemas, conexões físicas e programação do que o ESP32.
+Um Controlador Lógico Programável (CLP) é um equipamento usado no controle de máquinas e processos industriais. Ele lê sinais de entrada, executa um programa e comanda saídas, que podem acionar dispositivos por meio de interfaces apropriadas.
+
+Assim como uma placa com ESP32, um CLP pode executar uma lógica de controle. Entretanto, os CLPs são projetados para aplicações industriais, com características de alimentação, proteção elétrica, conexões e imunidade a interferências adequadas às condições especificadas pelo fabricante. Suas saídas podem ser a relé, transistor ou de outros tipos, conforme o modelo.
+
+Um CLP convencional não deve ser confundido com um CLP de segurança. A robustez industrial não significa que qualquer CLP possa executar funções de segurança ou continuar funcionando durante uma queda de energia.
 
 Nesse momento, você só precisa saber que existe esse equipamento, porque mais para frente, quem for fazer Engenharia da Computação, terá um estudo mais aprofundado.
 
@@ -53,14 +57,19 @@ O CLP a seguir, é um dos mais baratos e simples de se programar.
 
 ### Ciclo de Varredura
 
-O CLP possui um ciclo de varredura que se assemelha ao `void loop()` do ESP32. Veja o fluxograma:  
-- A última linha é mais importante que a penúltima.  
-- A penúltima é mais importante que a antepenúltima.  
-- Um botão de emergência deve estar nas últimas linhas.
+No modelo básico de execução cíclica, o CLP lê as entradas, executa o programa e atualiza as saídas. Essa repetição pode ser comparada, de forma introdutória, à execução contínua de `loop()` no framework Arduino, embora os mecanismos de atualização das entradas e saídas sejam diferentes.
+
+A ordem de execução das instruções pode influenciar o resultado. Se uma mesma variável ou saída receber várias atribuições durante uma execução sequencial, a última atribuição executada pode determinar seu valor final. Isso não significa que as últimas linhas sejam mais importantes ou tenham prioridade de segurança.
+
+A parada de emergência deve utilizar uma arquitetura de segurança adequada à máquina, definida a partir da avaliação de riscos, podendo envolver relé de segurança ou CLP de segurança e dispositivos apropriados. Colocar uma condição nas últimas linhas do programa de um CLP convencional não garante uma parada de emergência segura.
+
+Veja o fluxograma do ciclo básico de varredura:
 
 ### CLP - Definições Básicas
 
-O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais a serem lidos é o sinal de corrente de 4 a 20 mA, pois é um sinal analógico robusto. Contudo, sinais digitais como HIGH e LOW também são usados.
+Conforme o modelo e os módulos instalados, um CLP pode possuir entradas e saídas digitais e analógicas. Entre os sinais analógicos industriais, são comuns os de corrente de 4 a 20 mA e os de tensão de 0 a 10 V. Cada sinal exige uma interface compatível.
+
+Os sinais digitais representam estados lógicos, como ligado e desligado. Em muitos CLPs, as entradas digitais utilizam 24 V em corrente contínua. Portanto, compartilhar os conceitos de HIGH e LOW não significa que os sinais possam ser conectados diretamente aos GPIOs de uma placa com ESP32.
 
 <img src="https://github.com/agodoi/m04-semana02b/blob/main/imgs/varreduraCLP.png" width="200">
 
@@ -75,101 +84,123 @@ O CLP possui entradas e saídas analógicas e digitais. Um dos principais sinais
 
 ---
 
-## Linguagem C - Classes, Métodos e Atributos
+## Linguagem C++ no Arduino - Classes, Métodos e Atributos
 
 ### Classes
-Uma classe é uma estrutura de programação que permite definir um novo tipo de dado personalizado com propriedades e comportamentos específicos. 
+Uma classe define um tipo de dado que pode reunir atributos e métodos. Os atributos armazenam dados, e os métodos representam operações associadas a esse tipo.
 
-Em outras palavras, uma classe cria um novo objeto que pode ser utilizado no programa, como no Arduino.
+Um objeto é uma instância de uma classe. Por exemplo, em `Blinker led(23, 500);`, `Blinker` é a classe e `led` é o objeto criado a partir dela.
 
-Portanto, vamos fazer de Programação Orientada a Objeto (POO).
+Nesta aula, utilizaremos Programação Orientada a Objetos (POO) em C++, com o framework Arduino. A linguagem C não possui os recursos de classes apresentados nestes exemplos.
 
 ### Componentes de uma Classe
-- **Membros da classe:** Variáveis ou constantes que definem o estado do objeto.
-- **Métodos da classe:** Funções que realizam operações no objeto ou nos seus membros.
+- **Atributos:** Dados associados ao objeto, como o pino do LED, o intervalo e seu estado atual.
+- **Métodos:** Funções que definem operações, como atualizar o estado do LED ou obter uma temperatura.
+- **Construtor:** Rotina especial executada na criação do objeto, utilizada para inicializá-lo.
+
+Atributos e métodos são membros da classe.
 
 Ao criar uma classe, você define como o objeto será inicializado, como as propriedades podem ser acessadas e modificadas, e quais métodos estarão disponíveis para interagir com o objeto. Isso facilita a criação de programas mais extensíveis e de fácil manutenção.
 
 ### Exemplo Prático 1 - Pisca-pisca usando Classe
 
-```
-// Definir a classe Blinker
+```cpp
+#include <Arduino.h>
+
 class Blinker {
   private:
     int _pino;
-    int _intervalo;
+    unsigned long _intervalo;
     unsigned long _previousMillis;
     bool _state;
+
   public:
-    Blinker(int pin, int interval) { //esse trecho chamamos de **construtor**
+    Blinker(int pin, unsigned long interval) {
       _pino = pin;
       _intervalo = interval;
       _previousMillis = 0;
       _state = false;
-      pinMode(_pino, OUTPUT);
     }
+
+    void begin() {
+      pinMode(_pino, OUTPUT);
+      digitalWrite(_pino, LOW);
+      _previousMillis = millis();
+    }
+
     void update() {
       unsigned long currentMillis = millis();
+
       if (currentMillis - _previousMillis >= _intervalo) {
         _previousMillis = currentMillis;
         _state = !_state;
-        digitalWrite(_pino, _state);
+        digitalWrite(_pino, _state ? HIGH : LOW);
       }
     }
 };
-// Criar um objeto da classe Blinker para o LED conectado ao pino digital 13 com intervalo de 500ms
+
+// Exemplo para uma placa ESP32 com GPIO 23 disponível.
+// Conecte um LED externo com resistor limitador de corrente.
 Blinker led(23, 500);
+
 void setup() {
-  // Não é necessário nenhuma configuração no setup para este exemplo
+  led.begin();
 }
+
 void loop() {
-  // Atualizar o estado do LED
   led.update();
 }
 ```
+    
+O construtor inicializa os atributos do objeto. O método `begin()`, chamado em `setup()`, configura o hardware após a inicialização do framework Arduino.
+
+O método `update()` alterna o estado do LED a cada 500 ms, sem utilizar `delay()`. Assim, um ciclo completo de acender e apagar dura aproximadamente 1 segundo.
 ---
 
 ### Exemplo Prático 2 - Lendo sensor de temperatura usando Classe
 
-```
+Este exemplo utiliza um Arduino Uno R3 com um sensor LM35 conectado à entrada A0. Nessa configuração, `analogRead()` retorna valores de 0 a 1023. A conversão abaixo considera uma referência nominal de 5 V; a tensão real de referência influencia a precisão da medição.
+
+O LM35 fornece uma variação de 10 mV por grau Celsius, sem o deslocamento de 500 mV característico do TMP36. O código não deve ser transferido diretamente para um ESP32 sem adaptar o pino e a conversão do ADC.
+
+```cpp
+#include <Arduino.h>
+
 class TemperatureSensor {
   private:
     int _pino;
+
   public:
     TemperatureSensor(int pin) {
       _pino = pin;
     }
+
     float getTemperature() {
       int sensorValue = analogRead(_pino);
-      float voltage = sensorValue * (5.0 / 4093.0);
-      float temperature = (voltage - 0.5) * 100.0;
+
+      // Conversão aproximada para Uno R3 com referência de 5 V.
+      float voltage = sensorValue * (5.0 / 1023.0);
+
+      // LM35: 10 mV por grau Celsius.
+      float temperature = voltage * 100.0;
+
       return temperature;
     }
 };
 
-
-// Criar um objeto da classe TemperatureSensor para o sensor LM35 conectado ao pino analógico A0 do Arduino Uno
 TemperatureSensor lm35(A0);
 
-
 void setup() {
-  // Iniciar a comunicação serial
   Serial.begin(9600);
 }
 
-
 void loop() {
-  // Ler a temperatura atual do sensor
   float temperature = lm35.getTemperature();
 
-
-  // Exibir a temperatura no monitor serial
   Serial.print("Temperatura: ");
   Serial.print(temperature);
   Serial.println(" °C");
 
-
-  // Aguardar 1 segundo antes de fazer outra leitura
   delay(1000);
 }
 ```
@@ -178,55 +209,73 @@ void loop() {
 
 **1)** Comece digitando ```class``` + nome que desejar e abra uma chave geral {
 
-**2)** Digite ```private:``` e abaixo, vai adicionando as variáveis necessárias para a sua classe. Essas variáveis serão visíveis apenas dentro da sua classe e elas serão usadas no ```public``` daqui a pouco. Uma dica: coloque o ```_``` nas varíaveis que serão privadas para você rapidamente distinguir dentro da sua classe o que é privado;
+**2)** Digite `private:` e declare os atributos que serão acessados pelos métodos da própria classe. No uso apresentado nesta aula, o código externo não poderá acessar esses atributos diretamente. O prefixo `_`, como em `_pino`, é apenas uma convenção de nomenclatura; quem determina o acesso privado é `private:`.
 
 **3)** Digite ```public:```. Nessa área, vamos criar o construtor e as **ações** da classe. Exemplos: testar botão, acender led, coletar sensor, formatar um número, realizar um cálculo, calcular um tempo, etc. E nessas ações, você vai usar as variáveis que foram declaradas no ```private```;
 
-**3.1)** No ```public```, criamos o **construtor**. No construtor, **indexamos a(s) variável(is) da função às variáveis privadas**. E ainda, caso precise, esse é o local do **pinMode** caso esteja trabalhando com pinos GPIO (General Purpose Input Output). Exemplos:
+**3.1)** Na seção `public:`, declare o construtor. Ele possui o mesmo nome da classe e não declara um tipo de retorno. Nos exemplos desta aula, o construtor recebe parâmetros e utiliza seus valores para inicializar os atributos do objeto.
 
-```
- public:
-    TemperatureSensor(int pin) {
-      _pino = pin;
-    }
-```
+Para configurar o hardware, utilizaremos um método `begin()`, chamado em `setup()`. Isso evita depender da disponibilidade do hardware durante a construção de objetos globais.
 
-ou
+Exemplo:
 
-```
- public:
-    Blinker(int pin, int interval) { //esse trecho chamamos de **construtor**
-      _pino = pin;
-      _intervalo = interval;
-      _previousMillis = 0;
-      _state = false;
-      pinMode(_pino, OUTPUT);
-    }
-```
+```cpp
+public:
+  Blinker(int pin, unsigned long interval) {
+    _pino = pin;
+    _intervalo = interval;
+    _previousMillis = 0;
+    _state = false;
+  }
 
-
-**3.2)** Feche o construtor com uma chave e crie as funções (que são os métodos do seu objeto), coloque **nome** + parênteses + variáveis declaradas localmente que receberão dados indexados. Esse **nome** que você pôs, será o método mais tarde. Exemplo: a função ``` float getTemperature() ``` vai ser usada como ```lm35.getTemperature();```, onde ```lm35``` é o objeto e ```.getTemperature()``` é o seu método. Veja:
-
-```
-    float getTemperature() { //esse nome getTemperature será concatenado ao objeto lm35 usando um ponto
-      int sensorValue = analogRead(_pino);
-      float voltage = sensorValue * (5.0 / 4093.0);
-      float temperature = (voltage - 0.5) * 100.0;
-      return temperature;
-    }
+  void begin() {
+    pinMode(_pino, OUTPUT);
+    digitalWrite(_pino, LOW);
+    _previousMillis = millis();
+  }
 ```
 
-```
-    void update() { //esse método chamado update não tem return, por isso, ele começa com void. Como ele não retorna nada, a sua utilidade é uma ação
-      unsigned long currentMillis = millis();
-      if (currentMillis - _previousMillis >= _intervalo) {
-        _previousMillis = currentMillis;
-        _state = !_state;
-        digitalWrite(_pino, _state); //ação de mexer o pino
-      }
+**3.2)** Após o construtor, declare os métodos da classe. Nos exemplos abaixo, cada método apresenta um tipo de retorno, um nome, parênteses com os parâmetros, quando houver, e um corpo entre chaves.
+
+O método `getTemperature()` retorna um valor do tipo `float`:
+
+```cpp
+float getTemperature() {
+  int sensorValue = analogRead(_pino);
+  float voltage = sensorValue * (5.0 / 1023.0);
+  float temperature = voltage * 100.0;
+
+  return temperature;
+}
 ```
 
-**ATENÇÃO**: note que temos **float** no primeiro exemplo e **void** no segundo exemplo. Sabe qual é a diferença? No Void sempre não tem **return**, isto é, não retorna nada quando temos **void**.
+Esse cálculo considera o Arduino Uno R3 com referência nominal de 5 V e um sensor LM35.
+
+Para chamar o método público de um objeto, utilizamos o operador ponto:
+
+```cpp
+float temperatura = lm35.getTemperature();
+```
+
+Nessa expressão, `lm35` é o objeto e `getTemperature()` é o método chamado. O ponto acessa um membro do objeto; ele não concatena nomes ou textos.
+
+Já o método `update()` realiza uma ação e não retorna um valor:
+
+```cpp
+void update() {
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - _previousMillis >= _intervalo) {
+    _previousMillis = currentMillis;
+    _state = !_state;
+    digitalWrite(_pino, _state ? HIGH : LOW);
+  }
+}
+```
+
+**ATENÇÃO:** `float` indica que o método retorna um valor desse tipo. Já `void` indica que o método não retorna um valor.
+
+Um método `void` pode utilizar `return;`, sem uma expressão, para encerrar sua execução antecipadamente. Portanto, `void` não significa ausência obrigatória da instrução `return`.
 
 **4)** Encerre a sua função (método) fechando a chave
 
