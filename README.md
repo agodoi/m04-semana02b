@@ -9,7 +9,7 @@ Revisão geral da linguagem C com aprofundamento em conceitos de fluxo de contro
 Adoção do VSCode + Wokwi + Platformio como ambiente de programação. Seguir [esses passos](https://docs.google.com/document/d/1etH9pohtJPUVs3hmWygYFLzkBLV8PzsorxjhviC-04g/edit?usp=sharing)
 
 
-## Vantagens para o seu projeto da Renault
+## Vantagens para o seu projeto da Estapar
 
 * Usando classes, seu código será mais estrturado;
 * Mais organizado;
